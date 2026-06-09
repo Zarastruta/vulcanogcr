@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VULCANO Metalúrgica Arquitetônica — Esquadrias, Soldagem e Estruturas Metálicas</title>
+<meta name="description" content="VULCANO Metalúrgica Arquitetônica: esquadrias de alumínio e vidro, soldagem de precisão e estruturas metálicas sob medida em Santa Catarina · Brasil. Peça seu orçamento.">
+<meta property="og:title" content="VULCANO Metalúrgica Arquitetônica">
+<meta property="og:description" content="Esquadrias de alumínio e vidro, soldagem e estruturas metálicas sob medida.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vulcanogcr.com/">
+<link rel="icon" href="assets/logo-v.svg">
+<style>
+  :root{ --preto:#0d0d0d; --laranja:#f77f00; --laranja2:#ff9100; --creme:#f5f0e8;
+    --cinza:#5c5c5c; --borda:#e0d8cc; --branco:#fff; }
+  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Segoe UI',Arial,Helvetica,sans-serif; color:var(--preto);
+    background:var(--creme); line-height:1.6; -webkit-font-smoothing:antialiased; }
+  img{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 24px; }
+  section{ scroll-margin-top:80px; }
+
+  /* HEADER */
+  header{ position:sticky; top:0; z-index:50; background:rgba(13,13,13,.96);
+    backdrop-filter:blur(6px); border-bottom:2px solid var(--laranja); }
+  .nav{ display:flex; align-items:center; gap:20px; height:68px; }
+  .nav .logo{ height:38px; background:var(--creme); padding:5px 10px; border-radius:4px; }
+  .nav ul{ display:flex; gap:26px; list-style:none; margin-left:auto; }
+  .nav ul a{ color:var(--creme); font-size:14px; font-weight:600; letter-spacing:.3px; transition:color .2s; }
+  .nav ul a:hover{ color:var(--laranja); }
+  .nav .wa{ background:var(--laranja); color:#111; padding:10px 18px; border-radius:4px;
+    font-weight:800; font-size:14px; transition:background .2s; }
+  .nav .wa:hover{ background:var(--laranja2); }
+  .burger{ display:none; margin-left:auto; background:none; border:0; cursor:pointer; padding:6px; }
+  .burger span{ display:block; width:26px; height:3px; background:var(--creme); margin:5px 0; border-radius:2px; }
+
+  /* HERO */
+  .hero{ position:relative; min-height:84vh; display:flex; align-items:center;
+    color:var(--creme); overflow:hidden; }
+  .hero::before{ content:""; position:absolute; inset:0;
+    background:linear-gradient(rgba(13,13,13,.78),rgba(13,13,13,.86)), url('assets/img/hero.jpg') center/cover; }
+  .hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:6px; background:var(--laranja); }
+  .hero .wrap{ position:relative; }
+  .hero .eyebrow{ color:var(--laranja); letter-spacing:6px; text-transform:uppercase; font-size:13px; font-weight:700; }
+  .hero h1{ font-size:clamp(34px,6vw,62px); font-weight:900; line-height:1.05; margin:14px 0 18px; max-width:14ch; }
+  .hero p{ font-size:clamp(16px,2.2vw,20px); color:#d8d2c6; max-width:52ch; }
+  .hero .cta{ display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+  .btn{ display:inline-block; padding:14px 26px; border-radius:5px; font-weight:800; font-size:15px; letter-spacing:.3px; transition:all .2s; }
+  .btn-pri{ background:var(--laranja); color:#111; }
+  .btn-pri:hover{ background:var(--laranja2); transform:translateY(-2px); }
+  .btn-sec{ border:2px solid var(--creme); color:var(--creme); }
+  .btn-sec:hover{ background:var(--creme); color:#111; }
+
+  /* SECTION TITLES */
+  .sec{ padding:84px 0; }
+  .sec.dark{ background:var(--preto); color:var(--creme); }
+  .sec-head{ max-width:720px; margin-bottom:46px; }
+  .sec-head .kicker{ color:var(--laranja); font-weight:800; letter-spacing:4px; text-transform:uppercase; font-size:13px; }
+  .sec-head h2{ font-size:clamp(26px,4vw,40px); font-weight:900; line-height:1.1; margin:10px 0 6px; }
+  .sec-head .bar{ width:64px; height:5px; background:var(--laranja); margin-top:16px; }
+  .sec-head p{ color:var(--cinza); margin-top:16px; font-size:17px; }
+  .sec.dark .sec-head p{ color:#b8b2a6; }
+
+  /* SOBRE */
+  .sobre{ display:grid; grid-template-columns:1.2fr .8fr; gap:48px; align-items:center; }
+  .sobre h2{ font-size:clamp(26px,4vw,38px); font-weight:900; line-height:1.12; }
+  .sobre .bar{ width:64px; height:5px; background:var(--laranja); margin:18px 0; }
+  .sobre p{ color:#444; font-size:17px; margin-bottom:14px; }
+  .stats{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .stat{ background:var(--preto); color:var(--creme); padding:24px; border-radius:8px; }
+  .stat b{ display:block; font-size:34px; color:var(--laranja); font-weight:900; line-height:1; }
+  .stat span{ font-size:14px; color:#cfc8bc; margin-top:8px; display:block; }
+
+  /* CARDS */
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .card{ background:var(--branco); border:1px solid var(--borda); border-radius:10px; overflow:hidden;
+    box-shadow:0 6px 20px rgba(0,0,0,.05); transition:transform .25s, box-shadow .25s; cursor:pointer; }
+  .sec.dark .card{ background:#161616; border-color:#262626; }
+  .card:hover{ transform:translateY(-6px); box-shadow:0 16px 36px rgba(0,0,0,.16); }
+  .card-img{ aspect-ratio:4/3; overflow:hidden; background:#ddd; }
+  .card-img img{ width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+  .card:hover .card-img img{ transform:scale(1.07); }
+  .card-body{ padding:20px 22px 24px; }
+  .card-body h3{ font-size:19px; font-weight:800; }
+  .sec.dark .card-body h3{ color:var(--creme); }
+  .card-body p{ font-size:14.5px; color:var(--cinza); margin-top:8px; }
+
+  /* CTA BAND */
+  .band{ background:var(--laranja); color:#111; text-align:center; padding:60px 24px; }
+  .band h2{ font-size:clamp(24px,4vw,38px); font-weight:900; }
+  .band p{ margin:10px 0 26px; font-size:18px; font-weight:600; }
+  .band .btn-dark{ background:#111; color:var(--creme); }
+  .band .btn-dark:hover{ background:#000; transform:translateY(-2px); }
+
+  /* CONTATO */
+  .contato{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+  .contato .info h2{ font-size:clamp(26px,4vw,38px); font-weight:900; }
+  .contato .bar{ width:64px; height:5px; background:var(--laranja); margin:18px 0 26px; }
+  .clist{ list-style:none; }
+  .clist li{ display:flex; gap:14px; align-items:flex-start; margin-bottom:22px; }
+  .clist .ic{ flex:none; width:46px; height:46px; border-radius:8px; background:var(--laranja);
+    color:#111; display:grid; place-items:center; font-weight:900; font-size:18px; }
+  .clist .lbl{ font-size:13px; color:var(--cinza); text-transform:uppercase; letter-spacing:1px; }
+  .clist .val{ font-size:18px; font-weight:700; }
+  .contato .box{ background:var(--preto); color:var(--creme); border-radius:12px; padding:40px; display:flex; flex-direction:column; justify-content:center; }
+  .contato .box img{ width:230px; margin-bottom:20px; background:var(--creme); padding:14px 18px; border-radius:8px; }
+  .contato .box p{ color:#cfc8bc; margin-bottom:24px; }
+
+  /* FOOTER */
+  footer{ background:#0a0a0a; color:#8a847a; text-align:center; padding:30px 24px; font-size:14px; }
+  footer .laranja{ color:var(--laranja); }
+
+  /* LIGHTBOX */
+  .lb{ position:fixed; inset:0; background:rgba(0,0,0,.92); display:none; place-items:center; z-index:100; padding:30px; }
+  .lb.open{ display:grid; }
+  .lb img{ max-width:92vw; max-height:88vh; border-radius:6px; }
+  .lb .x{ position:absolute; top:20px; right:28px; color:#fff; font-size:40px; cursor:pointer; line-height:1; }
+
+  @media (max-width:900px){
+    .grid{ grid-template-columns:repeat(2,1fr); }
+    .sobre,.contato{ grid-template-columns:1fr; }
+    .nav ul, .nav .wa{ display:none; }
+    .burger{ display:block; }
+    .nav.open ul{ display:flex; position:absolute; top:68px; left:0; right:0; flex-direction:column;
+      background:var(--preto); padding:18px 24px; gap:16px; border-bottom:2px solid var(--laranja); }
+    .nav.open .wa{ display:inline-block; position:absolute; top:230px; left:24px; }
+  }
+  @media (max-width:560px){ .grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav wrap" id="nav">
+    <a href="#topo"><img class="logo" src="assets/logo-h.svg" alt="VULCANO"></a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul>
+      <li><a href="#aluminio">Alumínio e Vidro</a></li>
+      <li><a href="#soldagem">Soldagem</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a class="wa" href="https://wa.me/5548998236934" target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
+</header>
+
+<section class="hero" id="topo">
+  <div class="wrap">
+    <div class="eyebrow">Metalúrgica Arquitetônica</div>
+    <h1>Estruturas e esquadrias sob medida</h1>
+    <p>Esquadrias de alumínio e vidro, soldagem de precisão e estruturas metálicas
+       com acabamento de alto padrão para arquitetura, obra e residência.</p>
+    <div class="cta">
+      <a class="btn btn-pri" href="https://wa.me/5548998236934" target="_blank" rel="noopener">Pedir orçamento</a>
+      <a class="btn btn-sec" href="#aluminio">Ver serviços</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="sobre">
+  <div class="wrap sobre">
+    <div>
+      <div class="kicker" style="color:var(--laranja);font-weight:800;letter-spacing:4px;text-transform:uppercase;font-size:13px;">A Vulcano</div>
+      <h2>Metal e vidro com precisão de quem entende de arquitetura</h2>
+      <div class="bar"></div>
+      <p>A <strong>VULCANO Metalúrgica Arquitetônica</strong> une duas frentes para entregar
+         seu projeto completo: <strong>esquadrias de alumínio e vidro</strong> e
+         <strong>soldagem e estruturas metálicas</strong>.</p>
+      <p>Trabalhamos sob medida, do projeto à instalação, com solda de acabamento limpo,
+         vedação eficiente e materiais de qualidade — para residências, comércios e obras.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>2</b><span>Áreas de atuação: alumínio/vidro e metalurgia</span></div>
+      <div class="stat"><b>100%</b><span>Projetos sob medida</span></div>
+      <div class="stat"><b>TIG<br>MIG</b><span>Soldagem de precisão</span></div>
+      <div class="stat"><b>★</b><span>Acabamento de alto padrão</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="aluminio" style="background:#efe9df;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Esquadrias</div>
+      <h2>Alumínio e Vidro</h2>
+      <div class="bar"></div>
+      <p>Janelas, portas, fachadas e portões em alumínio com vidro, fabricados sob medida.</p>
+    </div>
+    <div class="grid">
+        <article class="card" data-img="assets/img/alu/porta-abrir.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/alu/porta-abrir.jpg" alt="Portas de Abrir"></div>
+          <div class="card-body"><h3>Portas de Abrir</h3><p>Portas pivotantes e sociais em alumínio com vidro ou painel, acabamento de alto padrão.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/alu/porta-correr.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/alu/porta-correr.jpg" alt="Portas de Correr"></div>
+          <div class="card-body"><h3>Portas de Correr</h3><p>Sistemas de correr em alumínio com vidro temperado para salas, varandas e sacadas.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/alu/janela-correr.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/alu/janela-correr.jpg" alt="Janelas de Correr"></div>
+          <div class="card-body"><h3>Janelas de Correr</h3><p>Janelas de correr em alumínio, 2 a 4 folhas, com tela mosquiteira opcional.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/alu/maxim-ar.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/alu/maxim-ar.jpg" alt="Janelas Maxim-ar"></div>
+          <div class="card-body"><h3>Janelas Maxim-ar</h3><p>Basculantes em alumínio com abertura para fora — ventilação e vedação eficientes.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/alu/veneziana.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/alu/veneziana.jpg" alt="Venezianas e Persianas"></div>
+          <div class="card-body"><h3>Venezianas e Persianas</h3><p>Controle de luz e ventilação com ótimo acabamento, sob medida.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/alu/portao-aluminio.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/alu/portao-aluminio.jpg" alt="Portões de Alumínio"></div>
+          <div class="card-body"><h3>Portões de Alumínio</h3><p>Portões sociais e de garagem, ripados ou fechados — leves e sem ferrugem.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/alu/fachada-vidro.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/alu/fachada-vidro.jpg" alt="Fachadas e Pele de Vidro"></div>
+          <div class="card-body"><h3>Fachadas e Pele de Vidro</h3><p>Fachadas envidraçadas estruturadas em alumínio, com visual sofisticado.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/alu/box-vidro.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/alu/box-vidro.jpg" alt="Box e Vidro Temperado"></div>
+          <div class="card-body"><h3>Box e Vidro Temperado</h3><p>Box de banheiro e divisórias em vidro temperado com ferragens.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/alu/guarda-corpo-vidro.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/alu/guarda-corpo-vidro.jpg" alt="Guarda-corpo de Vidro"></div>
+          <div class="card-body"><h3>Guarda-corpo de Vidro</h3><p>Guarda-corpos em vidro temperado com fixação em alumínio e inox.</p></div>
+        </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" id="soldagem">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Metalurgia</div>
+      <h2>Soldagem e Estruturas Metálicas</h2>
+      <div class="bar"></div>
+      <p>Soldagem de precisão, estruturas, escadas, mezaninos e serralheria pesada.</p>
+    </div>
+    <div class="grid">
+        <article class="card" data-img="assets/img/sol/estrutura.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/sol/estrutura.jpg" alt="Estrutura Metálica"></div>
+          <div class="card-body"><h3>Estrutura Metálica</h3><p>Estruturas sob medida para coberturas, galpões e obras, soldadas com precisão.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/sol/escada.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/sol/escada.jpg" alt="Escadas Metálicas"></div>
+          <div class="card-body"><h3>Escadas Metálicas</h3><p>Escadas em aço sob medida — retas, em L ou caracol, com acabamento limpo.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/sol/mezanino.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/sol/mezanino.jpg" alt="Mezaninos"></div>
+          <div class="card-body"><h3>Mezaninos</h3><p>Mezaninos em estrutura metálica para ampliar a área útil do seu espaço.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/sol/cobertura.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/sol/cobertura.jpg" alt="Coberturas e Telhados"></div>
+          <div class="card-body"><h3>Coberturas e Telhados</h3><p>Estruturas metálicas para telhados, coberturas e pergolados de alta resistência.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/sol/guarda-corpo.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/sol/guarda-corpo.jpg" alt="Guarda-corpos e Corrimãos"></div>
+          <div class="card-body"><h3>Guarda-corpos e Corrimãos</h3><p>Guarda-corpos e corrimãos em aço e inox para escadas, sacadas e rampas.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/sol/solda-inox.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/sol/solda-inox.jpg" alt="Solda TIG / MIG em Inox"></div>
+          <div class="card-body"><h3>Solda TIG / MIG em Inox</h3><p>Soldagem de precisão em inox e aço carbono, com cordão de acabamento limpo.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/sol/serralheria.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/sol/serralheria.jpg" alt="Serralheria e Portões"></div>
+          <div class="card-body"><h3>Serralheria e Portões</h3><p>Portões, grades e estruturas em ferro sob medida, com tratamento e pintura.</p></div>
+        </article>
+        <article class="card" data-img="assets/img/sol/inox.jpg">
+          <div class="card-img"><img loading="lazy" src="assets/img/sol/inox.jpg" alt="Peças e Reservatórios em Inox"></div>
+          <div class="card-body"><h3>Peças e Reservatórios em Inox</h3><p>Caixas, tanques e peças em inox sob medida, com solda estanque.</p></div>
+        </article>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <h2>Vamos tirar seu projeto do papel</h2>
+  <p>Orçamento sob medida, sem compromisso.</p>
+  <a class="btn btn-dark" href="https://wa.me/5548998236934" target="_blank" rel="noopener">Falar no WhatsApp · (48) 9 9823-6934</a>
+</section>
+
+<section class="sec" id="contato">
+  <div class="wrap contato">
+    <div class="info">
+      <h2>Fale com a Vulcano</h2>
+      <div class="bar"></div>
+      <ul class="clist">
+        <li><div class="ic">W</div><div><div class="lbl">WhatsApp</div>
+            <a class="val" href="https://wa.me/5548998236934" target="_blank" rel="noopener">(48) 9 9823-6934</a></div></li>
+        <li><div class="ic">@</div><div><div class="lbl">E-mail</div>
+            <a class="val" href="mailto:vulcanometalurgicagcr@hotmail.com">vulcanometalurgicagcr@hotmail.com</a></div></li>
+        <li><div class="ic">◎</div><div><div class="lbl">Atendimento</div>
+            <span class="val">Santa Catarina · Brasil</span></div></li>
+      </ul>
+    </div>
+    <div class="box">
+      <img src="assets/logo-h.svg" alt="VULCANO">
+      <p>Envie as medidas ou a ideia do seu projeto. Respondemos com seu orçamento sob medida.</p>
+      <a class="btn btn-pri" href="https://wa.me/5548998236934" target="_blank" rel="noopener">Pedir orçamento agora</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><span class="laranja">VULCANO</span> · Metalúrgica Arquitetônica — Santa Catarina · Brasil<br>
+  WhatsApp (48) 9 9823-6934 · vulcanometalurgicagcr@hotmail.com · © 2026</p>
+</footer>
+
+<div class="lb" id="lb"><span class="x" id="lbx">&times;</span><img id="lbimg" src="" alt=""></div>
+
+<script>
+  const nav=document.getElementById('nav'),burger=document.getElementById('burger');
+  burger.addEventListener('click',()=>nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+  const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
+  document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>{
+    lbimg.src=c.dataset.img; lb.classList.add('open');
+  }));
+  function close(){ lb.classList.remove('open'); }
+  document.getElementById('lbx').addEventListener('click',close);
+  lb.addEventListener('click',e=>{ if(e.target===lb) close(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+</script>
+</body>
+</html>
